@@ -1,0 +1,23 @@
+<h1 class="text-center mt-4">Shorten Link</h1>
+
+<header class="intro">
+  <div class="container">
+    <div class="text-center">
+      <h2 class="welcome">Shorten your links!</h2>
+    </div>
+    <div class="row justify-content-md-center">
+      <div class="col-md-8 col-md-offset-2">
+          <div class="shorten-container">
+            <%= form_for :link, url: links_path, method: :post do |f| %>
+              <div class="input-group mb-3">
+                <%= f.text_field :full_url, class: 'panel panel-default form-control original_url',
+                    required: true, placeholder: "Paste long URL to shorten" %>
+                <%= f.submit "Shorten ", class: "btn btn-shorten" %>
+              </div>
+            <% end %>
+          </div>
+      </div>
+    </div>
+  </div>
+</header>
+

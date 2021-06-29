@@ -1,0 +1,26 @@
+<div class="row justify-content-md-center">
+  <div class="col-md-8">
+    <div class="container-fluid edit-link-container">
+      <ul class="list-group details-manage">
+        <li class="list-group-item">
+          <span class="details"><%= @link.title %></span>
+        </li>
+        <li class="list-group-item">
+          Shortened URL: <%= link_to "#{request.base_url}/#{@link.slug}", link_path(@link.slug), target: "_blank"%>
+        </li>
+        <li class="list-group-item">
+          Clicks
+          <ul class="list-group scrollable">
+            <% @link.clicks.each do |click| %>
+              <li class="list-group-item">
+                <span class="details"><%= click.ip_address %></span>
+                <span class="details text-right"><%= click.created_at.strftime("Clicked on %m/%d/%Y %I:%M%p") %></span>
+              </li>
+            <% end %>
+          </ul>
+        </li>
+      </ul>
+      <%= link_to 'New', new_link_path %>
+    </div>
+  </div>
+</div>
